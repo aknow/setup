@@ -25,8 +25,4 @@ sudo make install
 # Vim setting.
 cd
 git clone git@github.com:aknow/.vim.git
-cd ~/.vim
-./install-vimrc.sh
-vim
-./install-xml.sh
-./config-vim-ycm.sh
+~/.vim/install.sh
