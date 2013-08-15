@@ -4,7 +4,9 @@ cd
 mkdir -p ~/bin
 
 # git, mercurial
-sudo apt-get install -y git-core mercurial
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get install -y git git-core mercurial
 
 # hub
 curl http://defunkt.io/hub/standalone -sLo ~/bin/hub
