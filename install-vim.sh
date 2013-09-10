@@ -8,21 +8,25 @@ sudo apt-get install -y libncurses5-dev libgnome2-dev libgnomeui-dev \
 sudo apt-get remove vim vim-runtime gvim
 sudo apt-get remove vim-tiny vim-common
 
-cd
-hg clone https://code.google.com/p/vim/
-#hg clone ssh://hg@bitbucket.org/aknow/vim
+cd ~
 
-cd vim
+# Fetch the code.
+if [ -d "vim" ]; then
+  cd vim
+  hg pull -u
+else
+  hg clone https://code.google.com/p/vim/
+  #hg clone ssh://hg@bitbucket.org/aknow/vim
+  cd vim
+fi
+
+# Build.
 ./configure --with-features=huge \
   --enable-rubyinterp \
   --enable-pythoninterp \
+            --with-python-config-dir=/usr/lib/python2.7-config \
   --enable-perlinterp \
   --enable-gui=gtk2 --enable-cscope --prefix=/usr
-
-make VIMRUNTIMEDIR=/usr/share/vim/vim73
+make VIMRUNTIMEDIR=/usr/share/vim/vim74
 sudo make install
 
-# Vim setting.
-cd
-git clone git@github.com:aknow/.vim.git
-~/.vim/install.sh
