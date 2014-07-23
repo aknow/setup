@@ -5,7 +5,7 @@ mkdir -p ~/bin
 
 sudo apt-get update
 
-# git, mercurial
+# utilities
 sudo apt-get install -y git git-core mercurial rake curl tmux
 
 # hub
